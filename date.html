@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<link rel="stylesheet" href="date.css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&display=swap" rel="stylesheet">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="section" style="background-image:url('./back.jpg') ;height:100vh;">
+        <div class="container">
+            <center>
+                <div class="row " style="margin-top:10rem;">
+                    <h1 style="font-family: 'Anton', sans-serif;letter-spacing:2rem;font-weight: bolder;">Day of week</h1>
+                    <h2 style="font-family: 'Xanh Mono', monospace;letter-spacing:2rem;font-weight: bolder;color: brown;" id="h2">Today is :</h2>
+                </div>
+                <div class="row">
+                    <button type="button" class="btn btn-default btn-circle btn-xl" onclick="todayDate()"><i class="glyphicon glyphicon">Date</i></button>
+                    <button type="button" class="btn btn-default btn-circle btn-xl" onclick="Day()"><i class="glyphicon glyphicon">Day</i></button>
+                    <button type="button" class="btn btn-default btn-circle btn-xl" onclick="thisMonth()"><i class="glyphicon glyphicon">Month</i></button>
+                    <button type="button" class="btn btn-default btn-circle btn-xl" onclick=" thisYear()"><i class="glyphicon glyphicon">Year</i></button>
+                    <button type="button" class="btn btn-default btn-circle btn-xl" onclick="nowTime()"><i class="glyphicon glyphicon">Time</i></button>
+                </div>
+            </center>
+        </div>
+    </div>
+
+    <script>
+        function todayDate(){
+            let today = new Date();
+            document.getElementById("h2").innerHTML = today.getDate()
+        }
+
+        function Day(){
+            var today = ["Sunday","Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"]
+            let today1 = new Date()
+            today2 = today[today1.getDay()]
+            document.getElementById("h2").innerHTML = today2
+        }
+
+        function thisMonth(){
+            var months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+            var month = new Date()
+            month1 = months[month.getMonth()]
+            document.getElementById("h2").innerHTML = month1
+
+        }
+
+        function thisYear(){
+            let year = new Date()
+            document.getElementById("h2").innerHTML = year.getFullYear()
+        }
+
+        function nowTime(){
+            let time = new Date()
+            var hrs = time.getHours()
+            var minute = time.getMinutes()
+            var seconds = time.getSeconds()
+            var millisec = time.getMilliseconds()
+            document.getElementById("h2").innerHTML = `${hrs}:${minute}:${seconds}:${millisec}`
+        }
+    </script>
+</body>
+</html>
